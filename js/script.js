@@ -3,6 +3,8 @@ const bombs = [];
 const easy = 100;
 const medium = 80;
 const hard = 50;
+
+
 //generare un numero random da inserire nell'array bombe finchè non ci saranno 16 elementi (funzione)
 function bombGenerator(min, max) {
     for (var i = 0; i < 16; i++) {
@@ -14,10 +16,15 @@ function bombGenerator(min, max) {
 console.log(bombGenerator(1, 100));
 console.table(bombs);
 
+
 // creare un array per ricordare i numeri scelti dall'utente
 const userNumbers = [];
+
+
 //chiede all'utente di scegliere un numero da 1 a 100
 let askUser = prompt('Scegli un numero da 1 a 100');
+
+
 //inserisce il numero scelto dall'utente dentro l'arrey userNumbers
 userNumbers.push(askUser);
 
@@ -30,3 +37,16 @@ for (var i = 0; i < (easy - bombs.length); i++) {
 
 
 console.log(userNumbers);
+
+
+// controllo numero dell'utente con bombe, se il numero scelto dall'utente corrisponde ad un numero
+// nell'array delle bombe oppure ad un numero gia scelto, se è uguale ad una bomba termina gioco,
+// altrimenti aggiungi numero all'array del giocatore
+if (userNumbers === bombs) {
+    console.log('Hai perso');
+} else if (userNumbers === askUser) {
+    console.log('Mi dispiace hai gia scelto questo numero');
+} else {
+    userNumbers.push(askUserNumber);
+}
+
